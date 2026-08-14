@@ -1,4 +1,73 @@
-h1 {
-  font-size: 2rem;
-  color: lightblue;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#img-container {
+  display: flex;
+  background-color: black;
+  flex-shrink: 0;
+}
+#img-container img {
+  height: 99dvh;
+  width: 100%;
+  object-fit: cover;
+  opacity: 0.45;
+  display: block;
+}
+#hero-text {
+  position: absolute;
+  top: 70%;
+  left: 8%;
+  transform: translateY(-50%);
+  max-width: 480px;
+  font-family:
+    system-ui,
+    -apple-system,
+    sans-serif;
+  z-index: 2;
+  font-weight: 600;
+  font-size: 1.7rem;
+}
+#sub-heading {
+  color: #d4a359;
+  font-weight: 700;
+  letter-spacing: 2px;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+#hero-text h1 {
+  font-family: "Georgia", serif;
+  font-size: 4rem;
+  font-weight: bold;
+  line-height: 1;
+  margin-bottom: 1rem;
+  color: white;
+}
+#description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #e0e0e0;
+}
+#ingredient-container {
+  display: flex;
+  background-color: rebeccapurple;
+  height: 70vh;
+  width: 20vw;
+}
+#image1-container {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: flex-end;
+  margin-left: 20px;
+  background-color: red;
+}
+#image1-container img {
+  height: 50vh;
+  width: 20vw;
+  object-fit: cover;
+  display: block;
 }
