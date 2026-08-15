@@ -71,3 +71,28 @@
   object-fit: cover;
   display: block;
 }
+#ingredient-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 50vw;
+  width: max-content;
+  margin-top: 5vh;
+  margin-left: 7vw;
+}
+#ingredient-container h1 {
+  align-self: normal;
+  font-weight: 300;
+  font-size: 2.5em;
+  margin: 0;
+}
+#ingredient-container ul {
+  list-style-type: disc;
+  padding: 1.2em;
+  margin: 0;
+  font-size: 1.1em;
+  color: gray;
+}
+#ingredient-container li {
+  margin-bottom: 0.6em;
+}
