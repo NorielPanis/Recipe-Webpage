@@ -11,7 +11,7 @@
   flex-shrink: 0;
 }
 #img-container img {
-  height: 99dvh;
+  height: 100dvh;
   width: 100%;
   object-fit: cover;
   opacity: 0.45;
@@ -52,12 +52,6 @@
   line-height: 1.5;
   color: #e0e0e0;
 }
-#ingredient-container {
-  display: flex;
-  background-color: rebeccapurple;
-  height: 70vh;
-  width: 20vw;
-}
 #image1-container {
   display: flex;
   flex-shrink: 0;
@@ -75,7 +69,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 50vw;
+  height: 25vw;
   width: max-content;
   margin-top: 5vh;
   margin-left: 7vw;
@@ -91,7 +85,7 @@
   padding: 1.2em;
   margin: 0;
   font-size: 1.1em;
-  color: gray;
+  color: rgb(37, 36, 36);
 }
 #ingredient-container li {
   margin-bottom: 0.6em;
