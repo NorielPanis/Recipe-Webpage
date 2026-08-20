@@ -5,6 +5,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+body {
+  background-color: #faf4ee;
+  overflow-x: hidden;
+}
 #img-container {
   display: flex;
   background-color: black;
@@ -56,20 +60,22 @@
   display: flex;
   flex-shrink: 0;
   justify-content: flex-end;
-  margin-left: 20px;
-  background-color: red;
+  margin-right: 10vw;
+  margin-top: -25vw;
+  flex-direction: row;
 }
 #image1-container img {
   height: 50vh;
-  width: 20vw;
+  width: 30vw;
   object-fit: cover;
   display: block;
+  border-radius: 20px;
 }
 #ingredient-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 25vw;
+  height: 28vw;
   width: max-content;
   margin-top: 5vh;
   margin-left: 7vw;
@@ -77,16 +83,28 @@
 #ingredient-container h1 {
   align-self: normal;
   font-weight: 300;
-  font-size: 2.5em;
+  font-size: 2.7em;
   margin: 0;
 }
 #ingredient-container ul {
   list-style-type: disc;
   padding: 1.2em;
   margin: 0;
-  font-size: 1.1em;
+  font-size: 1.3em;
   color: rgb(37, 36, 36);
 }
 #ingredient-container li {
   margin-bottom: 0.6em;
+}
+#HTC {
+  position: relative;
+  transform: translate(7.5vw, 25vh);
+  font-family: "Georgia", "Garamond", "Times New Roman", serif;
+  font-weight: 700;
+}
+#HTC-Container {
+}
+#somethingsomething {
+  position: relative;
+  top: 20000vh;
 }
