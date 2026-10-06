@@ -96,13 +96,76 @@ body {
 #ingredient-container li {
   margin-bottom: 0.6em;
 }
-#HTC {
-  position: relative;
-  transform: translate(7.5vw, 25vh);
-  font-family: "Georgia", "Garamond", "Times New Roman", serif;
-  font-weight: 700;
-}
+
 #HTC-Container {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  margin: 70px 0 0 6vw;
+  width: 86vw;
+  line-height: 2;
+}
+#HTC-Container h1 {
+  font-weight: 700;
+  font-size: 2.7em;
+  margin: 0;
+  font-family: serif;
+  padding-left: 30px;
+}
+
+#circle-list {
+  list-style-type: none;
+  counter-reset: list-item;
+  padding-left: 0;
+}
+#HTC-Container #circle-list {
+  padding-left: 35px;
+}
+#HTC-Container li {
+  margin-bottom: 1.5em;
+  font-size: 1.3em;
+  color: black;
+  border-radius: 50%;
+  font-family:
+    playfair display,
+    serif;
+}
+#HTC-Container li::before {
+  content: counter(list-item);
+  color: #d4a359;
+  font-size: 1em;
+  background-color: rgb(237, 89, 15);
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  display: inline-flex;
+  width: 36px;
+  height: 36px;
+  color: white;
+}
+
+#tips_tricks {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  margin: 70px 0 0 6vw;
+  width: 86vw;
+  line-height: 2;
+  h1 {
+    font-weight: 700;
+    font-size: 2.7em;
+    margin: 0;
+    font-family: serif;
+    padding-left: 30px;
+  }
+  p {
+    font-size: 1.3em;
+    color: red;
+    font-family:
+      playfair display,
+      serif;
+    padding-left: 30px;
+  }
 }
 #somethingsomething {
   position: relative;
