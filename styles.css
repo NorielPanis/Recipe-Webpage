@@ -1,3 +1,8 @@
+html {
+  overflow-x: hidden;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
 *,
 *::before,
 *::after {
@@ -8,11 +13,21 @@
 body {
   background-color: #faf4ee;
   overflow-x: hidden;
-}
-#img-container {
+  overflow-wrap: break-word;
   display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+img {
+  max-width: 100%;
+}
+
+/* ---------- HERO ---------- */
+#img-container {
+  position: relative; /* hero text is anchored to the hero itself */
+  display: flex;
+  flex: 0 0 100%;
   background-color: black;
-  flex-shrink: 0;
 }
 #img-container img {
   height: 100dvh;
@@ -26,7 +41,10 @@ body {
   top: 70%;
   left: 8%;
   transform: translateY(-50%);
-  max-width: 480px;
+  max-width: min(
+    calc(100% - 2 * 8%),
+    clamp(16rem, calc(7.5rem + 25dvw), 48rem)
+  ); /* was 480px */
   font-family:
     system-ui,
     -apple-system,
@@ -38,79 +56,88 @@ body {
 #sub-heading {
   color: #d4a359;
   font-weight: 700;
-  letter-spacing: 2px;
-  font-size: 0.85rem;
+  letter-spacing: calc(0.15 * 1em); /* was 2px */
+  font-size: clamp(0.75rem, calc(0.41rem + 0.49dvw), 1.5rem); /* was 0.85rem */
   margin-bottom: 0.5rem;
   text-transform: uppercase;
 }
 #hero-text h1 {
   font-family: "Georgia", serif;
-  font-size: 4rem;
+  font-size: clamp(2.75rem, calc(1.94rem + 2.28dvw), 6rem); /* was 4rem */
   font-weight: bold;
   line-height: 1;
   margin-bottom: 1rem;
   color: white;
 }
 #description {
-  font-size: 1rem;
+  font-size: clamp(0.9rem, calc(0.49rem + 0.57dvw), 1.6rem); /* was 1rem */
   line-height: 1.5;
   color: #e0e0e0;
 }
-#image1-container {
-  display: flex;
-  flex-shrink: 0;
-  justify-content: flex-end;
-  margin-right: 10vw;
-  margin-top: -25vw;
-  flex-direction: row;
-}
-#image1-container img {
-  height: 50vh;
-  width: 30vw;
-  object-fit: cover;
-  display: block;
-  border-radius: 20px;
-}
+
+/* ---------- INGREDIENTS ---------- */
 #ingredient-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 28vw;
+  flex: 0 0 auto;
   width: max-content;
-  margin-top: 5vh;
-  margin-left: 7vw;
+  margin-top: clamp(1rem, 5dvh, 3.5rem); /* was 5vh */
+  margin-left: 7dvw;
 }
 #ingredient-container h1 {
   align-self: normal;
   font-weight: 300;
-  font-size: 2.7em;
+  font-size: clamp(1.9rem, calc(1.31rem + 1.54dvw), 4.25rem); /* was 2.7em */
   margin: 0;
 }
 #ingredient-container ul {
   list-style-type: disc;
   padding: 1.2em;
   margin: 0;
-  font-size: 1.3em;
+  font-size: clamp(1.05rem, calc(0.63rem + 0.74dvw), 1.9rem); /* was 1.3em */
   color: rgb(37, 36, 36);
 }
 #ingredient-container li {
   margin-bottom: 0.6em;
 }
 
+/* ---------- SECOND IMAGE ---------- */
+#image1-container {
+  display: flex;
+  flex: 1 1 0; /* fills the rest of the line next to the ingredients */
+  min-width: 0;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 10dvw;
+  /* lines up with the ingredients block, same as the old -25vw trick */
+  margin-top: calc(clamp(1rem, 5dvh, 3.5rem) + 3dvw);
+}
+#image1-container img {
+  height: 50dvh;
+  min-height: 12rem;
+  width: 30dvw;
+  object-fit: cover;
+  display: block;
+  border-radius: clamp(0.75rem, 1.4dvw, 2rem); /* was 20px */
+}
+
+/* ---------- HOW TO COOK ---------- */
 #HTC-Container {
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
   background-color: transparent;
-  margin: 70px 0 0 6vw;
-  width: 86vw;
+  margin: clamp(2.5rem, 7.8dvh, 6rem) 0 0 6dvw; /* was 70px 0 0 6vw */
+  width: calc(100dvw - 6dvw - 8dvw); /* = 86dvw */
   line-height: 2;
 }
 #HTC-Container h1 {
   font-weight: 700;
-  font-size: 2.7em;
+  font-size: clamp(1.9rem, calc(1.31rem + 1.54dvw), 4.25rem); /* was 2.7em */
   margin: 0;
   font-family: serif;
-  padding-left: 30px;
+  padding-left: clamp(0.75rem, calc(0.91rem + 1.07dvw), 3.75rem); /* was 30px */
 }
 
 #circle-list {
@@ -119,11 +146,11 @@ body {
   padding-left: 0;
 }
 #HTC-Container #circle-list {
-  padding-left: 35px;
+  padding-left: clamp(0.85rem, calc(1.06rem + 1.25dvw), 4.25rem); /* was 35px */
 }
 #HTC-Container li {
   margin-bottom: 1.5em;
-  font-size: 1.3em;
+  font-size: clamp(1.05rem, calc(0.63rem + 0.74dvw), 1.9rem); /* was 1.3em */
   color: black;
   border-radius: 50%;
   font-family:
@@ -139,35 +166,91 @@ body {
   justify-content: center;
   align-items: center;
   display: inline-flex;
-  width: 36px;
-  height: 36px;
+  width: calc(1em * 1.75); /* was 36px, now scales with the text */
+  height: calc(1em * 1.75);
   color: white;
 }
 
+/* ---------- TIPS & TRICKS ---------- */
 #tips_tricks {
   display: flex;
   flex-direction: column;
+  flex: 0 0 auto;
   background-color: transparent;
-  margin: 70px 0 0 6vw;
-  width: 86vw;
+  margin: clamp(2.5rem, 7.8dvh, 6rem) 0 0 6dvw; /* was 70px 0 0 6vw */
+  width: calc(100dvw - 6dvw - 8dvw); /* = 86dvw */
   line-height: 2;
+  font-family: Instrument Serif;
+
   h1 {
     font-weight: 700;
-    font-size: 2.7em;
+    font-size: clamp(1.9rem, calc(1.31rem + 1.54dvw), 4.25rem); /* was 2.7em */
     margin: 0;
-    font-family: serif;
-    padding-left: 30px;
+    font-family: Instrument Serif;
+    padding-left: clamp(
+      0.9rem,
+      calc(1.22rem + 1.43dvw),
+      4.75rem
+    ); /* was 40px */
+    color: #8b3a22;
   }
+
   p {
-    font-size: 1.3em;
-    color: red;
+    font-size: clamp(1.05rem, calc(0.63rem + 0.74dvw), 1.9rem); /* was 1.3em */
+    color: #8b3a22;
     font-family:
       playfair display,
       serif;
-    padding-left: 30px;
+    padding-left: clamp(
+      0.75rem,
+      calc(0.91rem + 1.07dvw),
+      3.75rem
+    ); /* was 30px */
   }
 }
-#somethingsomething {
-  position: relative;
-  top: 20000vh;
+
+/* ---------- FOOTER ---------- */
+footer {
+  display: flex;
+  flex: 0 0 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #242222;
+  color: gray;
+  font-family:
+    playfair display,
+    serif;
+  font-size: clamp(0.9rem, calc(0.58rem + 0.69dvw), 1.8rem); /* was 1.2em */
+  min-height: clamp(4.5rem, 11dvh, 8rem); /* was height: 100px */
+  padding: 1rem 5dvw;
+  margin-top: clamp(2.5rem, 7.8dvh, 6rem); /* was 70px */
+}
+
+@media (max-width: 43.75rem) {
+  #ingredient-container {
+    flex: 1 1 calc(100% - 14dvw);
+    width: auto;
+    margin-right: 7dvw;
+  }
+
+  #image1-container {
+    flex: 1 1 calc(100% - 14dvw);
+    justify-content: center;
+    margin: 1.5rem 7dvw 0;
+  }
+  #image1-container img {
+    width: 100%;
+    height: clamp(14rem, calc(40dvh - 2rem), 30rem);
+  }
+}
+
+@media (max-height: 30rem) and (orientation: landscape) {
+  #hero-text {
+    top: 62%;
+    max-width: min(calc(100% - 2 * 8%), 32rem);
+  }
+  #hero-text h1 {
+    margin-bottom: 0.5rem;
+  }
 }
